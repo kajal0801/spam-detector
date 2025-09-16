@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Spam Classifier</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='email4.jpg') }}");
+
+            background-repeat: no repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+        input[type=text] {
+            width: 400px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        input[type=submit] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #b700ff;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+        }
+        input[type=submit]:hover {
+            background-color: #0030b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Email Spam Detection</h1>
+    <form action="/predict" method="post">
+        <input type="text" name="message" placeholder="Enter your email text here" required>
+        <br><br>
+        <input type="submit" value="Check">
+    </form>
+</body>
+</html>
