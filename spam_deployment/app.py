@@ -1,9 +1,16 @@
 from flask import Flask, render_template, request
 import pickle
+import os
 
 # Load trained model
-with open("spam_model.pkl", "rb") as model_file:
+BASE_DIR = os.path.dirname(__file__)
+MODEL_PATH = os.path.join(BASE_DIR, "spam_model.pkl")
+MODEL_PATH = os.path.join(BASE_DIR, "vectorizer.pkl")
+
+# Load trained model
+with open(MODEL_PATH, "rb") as model_file:
     model = pickle.load(model_file)
+
 
 # Load saved vectorizer
 with open("vectorizer.pkl", "rb") as vec_file:
